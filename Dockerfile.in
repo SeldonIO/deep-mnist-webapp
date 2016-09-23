@@ -1,6 +1,6 @@
 FROM seldonio/pyseldon:%SELDON_PYTHON_PACKAGE_VERSION%
 
-EXPOSE 5001
+EXPOSE 80
 
 ENV SELDON_HOME=/home/seldon
 COPY webapp.py $SELDON_HOME/webapp.py
