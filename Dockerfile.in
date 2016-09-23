@@ -1,0 +1,12 @@
+FROM seldonio/pyseldon:%SELDON_PYTHON_PACKAGE_VERSION%
+
+EXPOSE 5001
+
+ENV SELDON_HOME=/home/seldon
+COPY webapp.py $SELDON_HOME/webapp.py
+COPY templates $SELDON_HOME/templates
+COPY static $SELDON_HOME/static
+
+RUN mkdir /user_images
+
+COPY run_webapp.sh /run_webapp.sh

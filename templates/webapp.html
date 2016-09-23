@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+
+<table id="page_structure">
+<tr>
+<td><h1>Drawing</h1></td>
+<td><h1>Input</h1></td>
+<td><h1>Predictions</h1></td>
+</tr>
+<tr>
+<td><canvas id="canvas" width="224" height="224"></canvas></td>
+<td><canvas id="input" width="224" height="224"></canvas></td>
+<td>
+<table id="predictions">
+	<tr>
+		<td> 0 </td> <td></td>
+	</tr>
+
+	<tr>
+		<td> 1 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 2 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 3 </td> <td></td>
+	</tr>	
+	<tr>
+		<td> 4 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 5 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 6 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 7 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 8 </td> <td></td>
+	</tr>
+	<tr>
+		<td> 9 </td> <td></td>
+	</tr>
+
+</table>
+</td>
+</tr>
+</table>
+<script type="text/javascript" src="{{ url_for('static', filename='webapp.js') }}"></script>
+</body>
+</html>

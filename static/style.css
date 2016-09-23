@@ -1,0 +1,24 @@
+canvas
+{
+  border:solid;
+}
+
+/*table
+{
+	border:solid 1px;
+}*/
+
+#page_structure
+{
+	text-align:center;
+}
+
+#predictions
+{
+	text-align:center;
+}
+
+.predicted
+{
+	color:red;
+}
