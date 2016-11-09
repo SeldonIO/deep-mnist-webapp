@@ -7,7 +7,8 @@ import time
 import argparse
 
 def encode_image(im):
-    return {'x%03d'%i:pixel for i,pixel in enumerate(im)}
+    data = {'x%03d'%i:pixel for i,pixel in enumerate(im)}
+    return {'data':data}
 
 def get_token():
     try:
@@ -44,7 +45,7 @@ def predict():
         r = request_prediction(request.json,_globals['token'])
 
     predictions = r.json()
-    list_preds = [(int(x['predictedClass']),x['prediction']) for x in predictions['list']]
+    list_preds = [(int(x['predictedClass']),x['prediction']) for x in predictions['predictions']]
     list_preds.sort()
     return jsonify([x[1] for x in list_preds])
 
