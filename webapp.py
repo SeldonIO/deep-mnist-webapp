@@ -5,9 +5,10 @@ import scipy.misc
 import numpy as np
 import time
 import argparse
+import sys
 
 def encode_image(im):
-    data = {'x%03d'%i:pixel for i,pixel in enumerate(im)}
+    data = [pixel for i,pixel in enumerate(im)]
     return {'data':data}
 
 def get_token():
@@ -47,6 +48,8 @@ def predict():
     predictions = r.json()
     list_preds = [(int(x['predictedClass']),x['prediction']) for x in predictions['predictions']]
     list_preds.sort()
+    print list_preds
+    sys.stdout.flush()
     return jsonify([x[1] for x in list_preds])
 
 if __name__ == '__main__':
