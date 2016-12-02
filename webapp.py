@@ -8,7 +8,8 @@ import argparse
 import sys
 
 def encode_image(im):
-    return {'x%03d'%i:pixel for i,pixel in enumerate(im)}
+    data = [pixel for i,pixel in enumerate(im)]
+    return {'data':data}
 
 def get_token():
     try:
@@ -43,13 +44,12 @@ def predict():
     if r.json().get('error_id') == 8: # Token expired
         _globals['token'] = get_token()
         r = request_prediction(request.json,_globals['token'])
-    
-    predictions = r.json()
-    print predictions
-    sys.stdout.flush()
 
-    list_preds = [(int(x['predictedClass']),x['prediction']) for x in predictions['results']]
+    predictions = r.json()
+    list_preds = [(int(x['predictedClass']),x['prediction']) for x in predictions['predictions']]
     list_preds.sort()
+    print list_preds
+    sys.stdout.flush()
     return jsonify([x[1] for x in list_preds])
 
 if __name__ == '__main__':
